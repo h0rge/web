@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoConsumo 12 - Obxectivo Sostible</title>
+    <style>
+        /* Deseño baseado en Green Software: Simple e eficiente */
+        :root {
+            --primary: #2d5a27;
+            --secondary: #8bc34a;
+            --bg: #f9fbf9;
+            --text: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(rgba(45, 90, 39, 0.05), rgba(45, 90, 39, 0.05));
+            border-radius: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--secondary);
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+        }
+
+        /* Simulación da ficha do produto (Baseado na páxina 4 do teu PDF) */
+        .product-mockup {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 2rem;
+        }
+
+        .tag-seasonal {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .impact-meter {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .impact-fill {
+            height: 100%;
+            width: 60%; /* Exemplo para impacto medio */
+            background: linear-gradient(to right, #4caf50, #ffeb3b, #f44336);
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            background: #eee;
+            margin-top: 4rem;
+        }
+
+        #camera-sim {
+            width: 100%;
+            height: 200px;
+            background: #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1 style="margin:0; font-size: 1.5rem;">Obxectivo 12</h1>
+    </div>
+    <nav>
+        <a href="#" style="color:white; text-decoration:none;">Foro</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="hero">
+        <h1>Consumo e Produción Sostible</h1>
+        <p>Utiliza a nosa IA para identificar o impacto medioambiental dos teus produtos en tempo real.</p>
+        <button class="btn" onclick="simularEscaneo()">📸 Escanear Tícket / Produto</button>
+    </section>
+
+    <div class="features">
+        <div class="card">
+            <h3>🔍 Identificación Inteligente</h3>
+            <p>Acceso á cámara con tecnoloxía OCR para analizar produtos, códigos de barras e adhesivos de carne ou peixe.</p>
+        </div>
+        <div class="card">
+            <h3>🌍 Trazabilidade Total</h3>
+            <p>Coñece a orixe, o percorrido (km) e as emisións de CO2 asociadas ao transporte dos teus alimentos.</p>
+        </div>
+        <div class="card">
+            <h3>📊 A túa Pegada</h3>
+            <p>Diagrama visual da túa pegada de carbono persoal baseada nas túas compras reais.</p>
+        </div>
+    </div>
+
+    <!-- Sección de resultado de exemplo -->
+    <section id="resultado" style="display:none;">
+        <h2 style="color: var(--primary);">Resultado da Análise</h2>
+        <div class="product-mockup">
+            <div style="display:flex; justify-content: space-between; align-items: start;">
+                <div>
+                    <h3 style="margin:0;">PLÁTANO</h3>
+                    <p style="color: #666;">Producto fresco • Froita</p>
+                    <span class="tag-seasonal">✓ DE TEMPADA</span>
+                </div>
+                <div style="text-align:right;">
+                    <p style="margin:0; font-weight:bold;">Proximidade</p>
+                    <p style="margin:0; font-size: 0.9rem;">Procedencia: Costa Rica</p>
+                    <p style="margin:0; color: #f44336;">Distancia: 8.650 km</p>
+                </div>
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <strong>Embalaxe</strong>
+                    <div class="impact-meter"><div class="impact-fill" style="width: 30%; background: #4caf50;"></div></div>
+                    <p style="font-size: 0.8rem;">Plástico reciclable (PP 5). Bo para o medio ambiente.</p>
+                </div>
+                <div>
+                    <strong>Impacto Ambiental</strong>
+                    <div class="impact-meter"><div class="impact-fill" style="width: 75%; background: #ff9800;"></div></div>
+                    <p style="font-size: 0.8rem;">Impacto medio-alto debido ao transporte de longa distancia.</p>
+                </div>
+            </div>
+
+            <div style="background: #fff8e1; padding: 15px; border-radius: 10px; margin-top: 15px;">
+                <strong>💡 Recomendación Sostible:</strong>
+                <p style="margin: 5px 0; font-size: 0.9rem;">Existen alternativas de <strong>Plátano de Canarias</strong> con moito menor impacto ambiental e transporte local.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 4rem; text-align: center; color: #666;">
+        <h2>Deseño con Compromiso</h2>
+        <p>Esta web aplica técnicas de <strong>Green Software</strong>: imaxes optimizadas, código eficiente e aloxamento en nubes ecolóxicas con enerxía 100% renovable.</p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2024 Proxecto Obxectivo 12 - Cada elección conta. Grazas por consumir de forma responsable.</p>
+</footer>
+
+<script>
+    function simularEscaneo() {
+        const res = document.getElementById('resultado');
+        res.style.display = 'block';
+        res.scrollIntoView({ behavior: 'smooth' });
+        alert("Simulando escaneo OCR... Analizando procedencia e embalaxe.");
+    }
+</script>
+
+</body>
+</html>
